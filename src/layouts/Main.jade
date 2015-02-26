@@ -12,7 +12,7 @@ html(lang="en")
         link(href="../../vendor/mdi/materialdesignicons.css", rel="stylesheet")
 
     body(ng-app="App")
-        .toolbar.bgc-indigo-500
+        div.toolbar.bgc-indigo-500
             .toolbar__left.mr
                 button.btn.btn--l.btn--white.btn--icon(lx-ripple)
                     i.mdi.mdi-windows
@@ -27,7 +27,7 @@ html(lang="en")
                             li
                                 a.dropdown-link.dropdown-link--is-header Tools
                             li
-                                a(href="!#/logout").dropdown-link
+                                a(href="#!/logout").dropdown-link
                                     i.mdi.mdi-logout
                                     | &nbsp; Log out
         div(flex-container="row", flex-gutter="24")
@@ -35,7 +35,7 @@ html(lang="en")
                 ul.list
                     li.list-row.list-row--has-primary.list-row--has-separator
                         .list-primary-tile
-                            a(href="#!/")
+                            a(href="#/")
                                 i.icon.icon--l.icon--teal.icon--circled.mdi.mdi-home
                         .list-content-tile.list-content-tile--two-lines
                             strong Home
@@ -43,8 +43,22 @@ html(lang="en")
 
                     li.list-row.list-row--has-primary.list-row--has-separator
                         .list-primary-tile
-                            a(href="#!/settings")
-                                i.icon.icon--l.icon--deep-purple.icon--circled.mdi.mdi-security
+                            a(href="#/products")
+                                i.icon.icon--l.icon--deep-purple.icon--circled.mdi.mdi-shopping
+                        .list-content-tile.list-content-tile--two-lines
+                            strong Products
+                            span รายการสินค้า
+                    li.list-row.list-row--has-primary.list-row--has-separator
+                        .list-primary-tile
+                            a(href="#/users")
+                                i.icon.icon--l.icon--red.icon--circled.mdi.mdi-account-multiple
+                        .list-content-tile.list-content-tile--two-lines
+                            strong Users
+                            span ข้อมูลผู้ใช้งาน
+                    li.list-row.list-row--has-primary.list-row--has-separator
+                        .list-primary-tile
+                            a(href="#/settings")
+                                i.icon.icon--l.icon--green.icon--circled.mdi.mdi-security
                         .list-content-tile.list-content-tile--two-lines
                             strong Settings
                             span กำหนดค่าระบบ
