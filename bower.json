@@ -1,6 +1,6 @@
 {
   "name": "nodewebkit_starterkit",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "authors": [
     "Satit Rianpit <rianpit@gmail.com>"
   ],
@@ -11,8 +11,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "lumx": "~0.3.10",
-    "angular-route": "~1.3.13",
-    "angular-i18n": "~1.3.13"
+    "lumx": "~0.3.24",
+    "angular-route": "~1.3.15"
   }
 }

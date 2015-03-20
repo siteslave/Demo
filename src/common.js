@@ -1,3 +1,19 @@
-App.factory('Common', function ($q) {
+App.factory('Common', function () {
+
+    var config = jf.readFileSync(configFile);
+
+    return {
+        getConnection: function () {
+            return require('knex')({
+                client: 'mysql',
+                connection: config.getConnection(),
+                pool: {
+                    min: 0,
+                    max: 1000
+                },
+                charset: 'utf8'
+            });
+        }
+    };
 
 });

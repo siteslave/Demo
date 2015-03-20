@@ -9,7 +9,8 @@ html(lang="en")
 
         link(href="../../vendor/lumx/dist/lumx.css", rel="stylesheet")
         link(href="../css/style.css", rel="stylesheet")
-        link(href="../../vendor/mdi/materialdesignicons.css", rel="stylesheet")
+        link(href="../../vendor/mdi/css/materialdesignicons.css", rel="stylesheet")
+        link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700")
 
     body(ng-app="App")
         div.toolbar.bgc-indigo-500
@@ -31,37 +32,22 @@ html(lang="en")
                                     i.mdi.mdi-logout
                                     | &nbsp; Log out
         div(flex-container="row", flex-gutter="24")
-            div(flex-item="3")
+            div(flex-item="3").card
                 ul.list
-                    li.list-row.list-row--has-primary.list-row--has-separator
-                        .list-primary-tile
+                    li.list-row.list-row--has-separator
+                        .list-row__primary
                             a(href="#/")
                                 i.icon.icon--l.icon--teal.icon--circled.mdi.mdi-home
-                        .list-content-tile.list-content-tile--two-lines
-                            strong Home
-                            span หน้าหลัก
-
-                    li.list-row.list-row--has-primary.list-row--has-separator
-                        .list-primary-tile
-                            a(href="#/products")
-                                i.icon.icon--l.icon--deep-purple.icon--circled.mdi.mdi-shopping
-                        .list-content-tile.list-content-tile--two-lines
-                            strong Products
-                            span รายการสินค้า
-                    li.list-row.list-row--has-primary.list-row--has-separator
-                        .list-primary-tile
-                            a(href="#/users")
-                                i.icon.icon--l.icon--red.icon--circled.mdi.mdi-account-multiple
-                        .list-content-tile.list-content-tile--two-lines
-                            strong Users
-                            span ข้อมูลผู้ใช้งาน
-                    li.list-row.list-row--has-primary.list-row--has-separator
-                        .list-primary-tile
+                        .list-row__content
+                            span.display-block Home
+                            span.display-block.fs-body-1.tc-black-2 หน้าหลัก
+                    li.list-row.list-row--has-separator
+                        .list-row__primary
                             a(href="#/settings")
                                 i.icon.icon--l.icon--green.icon--circled.mdi.mdi-security
-                        .list-content-tile.list-content-tile--two-lines
-                            strong Settings
-                            span กำหนดค่าระบบ
+                        .list-row__content
+                            span.display-block Settings
+                            span.display-block.fs-body-1.tc-black-2 กำหนดค่าระบบ
 
             div(flex-item="9")
                 .card
@@ -73,7 +59,6 @@ html(lang="en")
         script(src="../../vendor/moment/min/moment-with-locales.min.js")
         script(src="../../vendor/angular/angular.js")
         script(src="../../vendor/angular-route/angular-route.min.js")
-        script(src="../../vendor/angular-i18n/angular-locale_th-th.js")
         script(src="../../vendor/lumx/dist/lumx.min.js")
         script(src="../app.js")
         script(src="../common.js")

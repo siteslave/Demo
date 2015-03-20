@@ -1,8 +1,8 @@
 {
   "name": "nodewebkit_starterkit",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "NodeWebKit Starterkit",
-  "main": "app/pages/Main.html",
+  "main": "app/login/Login.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -30,17 +30,20 @@
   },
   "chromium-args": "--lang=th_TH --child-clean-exit --disable-accelerated-video --disabled-application-cache --disabled-backing-store-limit",
   "devDependencies": {
-    "gulp": "^3.8.10",
-    "gulp-jade": "^0.10.0",
-    "gulp-jshint": "^1.9.0",
-    "gulp-less": "^2.0.1",
-    "gulp-watch": "^3.0.0"
+    "gulp": "~3.8.11",
+    "gulp-jade": "~1.0.0",
+    "gulp-jshint": "~1.9.4",
+    "gulp-less": "~3.0.2",
+    "gulp-watch": "~4.2.0"
   },
   "dependencies": {
-    "jsonfile": "^2.0.0",
-    "knex": "^0.7.3",
-    "lodash": "^2.4.1",
-    "moment": "^2.9.0",
-    "mysql": "^2.5.4"
+    "jsonfile": "~2.0.0",
+    "knex": "~0.7.6",
+    "lodash": "~3.5.0",
+    "moment": "~2.9.0",
+    "mysql": "~2.5.5",
+    "adm-zip": "~0.4.7",
+    "q": "~1.2.0",
+    "q-foreach": "~0.0.3"
   }
 }
