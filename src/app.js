@@ -15,7 +15,7 @@ var configFile = path.join(appPath, 'config.json');
 /*********************************************************/
 
 //Check file configure.
-fs.access(configFile, fs.W_OK | fs.R_OK, function (err) {
+fs.access(configFile, fs.W_OK && fs.R_OK, function (err) {
     if (err) {
         var defaultConfig = {
             db: {

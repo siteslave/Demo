@@ -6,7 +6,7 @@ App.factory('Common', function () {
         getConnection: function () {
             return require('knex')({
                 client: 'mysql',
-                connection: config.getConnection(),
+                connection: config.db,
                 pool: {
                     min: 0,
                     max: 1000
