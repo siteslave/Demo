@@ -23,8 +23,7 @@ fs.access(configFile, fs.W_OK && fs.R_OK, function (err) {
                 database: 'mydb',
                 user: 'dbUser',
                 password: 'dbPassword'
-            },
-            apiUrl: 'http://localhost:3000'
+            }
         };
 
         jf.writeFileSync(configFile, defaultConfig);
