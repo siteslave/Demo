@@ -16,3 +16,12 @@ App.filter('toThaiDate', function () {
     };
 
 });
+
+App.filter('countAge', function () {
+    return function (date) {
+        var currentYear = moment().get('year');
+        var birthYear = moment(date).get('year');
+
+        return currentYear - birthYear;
+    }
+});

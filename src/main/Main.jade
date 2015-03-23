@@ -1,3 +1,46 @@
 //- Main page
 
-| Main page
+| รายชื่อผู้ประสบอุบัติเหตุ
+
+div(flex-container="row", flex-gutter="24")
+    div(flex-item="3")
+        lx-date-picker(label="ตั้งแต่", model="startDate", locale="th")
+    div(flex-item="3")
+        lx-date-picker(label="ถึง", model="endDate", locale="th")
+
+    div(flex-item="3")
+        br
+        button.btn.btn--l.btn--blue.btn--raised(lx-ripple, ng-click="doGetData()") แสดงข้อมูล
+
+div.data-table-container
+    table.data-table.data-table--has-secondary
+        thead
+            tr
+                th #
+                th วันที่
+                th เวลา
+                // th CID
+                th HN
+                th ชื่อ - สกุล
+                th อายุ
+                th
+            tr
+                td(colspan="7").divider.divider--dark
+        tbody
+            tr(ng-repeat="p in patient").data-table__clickable-row
+                td {{ $index + 1 }}
+                td {{ p.vstdate | toThaiDate }}
+                td {{ p.vsttime }}
+                // td {{ p.cid }}
+                td {{ p.hn }}
+                td {{ p.pname }}{{ p.fname }} {{ p.lname }}
+                td {{ p.birthday | countAge }}
+                td
+                    lx-dropdown(position="top", from-top)
+                        buton(lx-ripple, lx-dropdown-toggle).btn.btn--l.btn--grey.btn--icon
+                            i.mdi.mdi-dots-vertical
+                        lx-dropdown-menu
+                            ul
+                                li
+                                    a.dropdown-link xxxx
+
