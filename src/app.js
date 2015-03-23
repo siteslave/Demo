@@ -40,11 +40,11 @@ App.config(function ($routeProvider) {
 
     // Configure routing
     $routeProvider
-        .when('/', {
+        .when('/', { // Main.html#/
             templateUrl: '../main/Main.html',
             controller: 'MainController'
         })
-        .when('/settings', {
+        .when('/settings', { // Main.html#/settings
             templateUrl: '../settings/Settings.html',
             controller: 'SettingController'
         })

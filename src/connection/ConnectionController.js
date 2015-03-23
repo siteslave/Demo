@@ -9,4 +9,5 @@ App.controller('ConnectionController', function ($scope, LxNotificationService) 
         jf.writeFileSync(configFile, $scope.config);
         LxNotificationService.success('บันทึกเสร็จแล้ว');
     };
+
 });

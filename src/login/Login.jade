@@ -1,8 +1,12 @@
 extends ../layouts/Login
 
+block scripts
+    script(src="LoginController.js")
+    script(src="LoginService.js")
+
 block content
     div(flex-container="column", flex-align="space-between center", class="mt++")
-        div(class="p+", style="width: 480px;").card
+        div(class="p+", style="width: 480px;", ng-controller="LoginController").card
             | Login
 
             lx-text-field(label="Username")
@@ -11,4 +15,4 @@ block content
             lx-text-field(label="Password")
                 input(type="password", ng-model="password")
 
-            button(lx-ripple).btn.btn--l.btn--blue.btn--raised Login
+            button(lx-ripple, ng-click="login()").btn.btn--l.btn--blue.btn--raised Login
