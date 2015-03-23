@@ -4,3 +4,11 @@ block content
     div(flex-container="column", flex-align="space-between center", class="mt++")
         div(class="p+", style="width: 480px;").card
             | Login
+
+            lx-text-field(label="Username")
+                input#txtUsername(type="text", ng-model="username")
+
+            lx-text-field(label="Password")
+                input(type="password", ng-model="password")
+
+            button(lx-ripple).btn.btn--l.btn--blue.btn--raised Login

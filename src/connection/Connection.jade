@@ -7,3 +7,25 @@ block content
     div(flex-container="column", flex-align="space-between center", class="mt++")
         div(class="p+", style="width: 580px;").card
             | Connectin settings
+
+            div(flex-container="row", flex-gutter="24")
+                div(flex-item="6")
+                    lx-text-field(label="Host")
+                        input(type="text", ng-model="config.db.host")
+                div(flex-item="3")
+                    lx-text-field(label="Port")
+                        input(type="number", ng-model="config.db.port")
+                div(flex-item="3")
+                    lx-text-field(label="Database")
+                        input(type="text", ng-model="config.db.database")
+
+            div(flex-container="row", flex-gutter="24")
+                div(flex-item="6")
+                    lx-text-field(label="Username")
+                        input(type="text", ng-model="config.db.user")
+                div(flex-item="6")
+                    lx-text-field(label="Password")
+                        input(type="password", ng-model="config.db.password")
+
+            br
+            button(lx-ripple).btn.btn--l.btn--green.btn--raised Save configure

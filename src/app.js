@@ -7,8 +7,7 @@ var gui = require('nw.gui'),
     jf = require('jsonfile'),
     fs = require('fs'),
     path = require('path'),
-    moment = require('moment'),
-    Zip = require('adm-zip');
+    moment = require('moment');
 /********************************************************/
 var appPath = gui.App.dataPath;
 var configFile = path.join(appPath, 'config.json');
