@@ -12,6 +12,10 @@ div(flex-container="row", flex-gutter="24")
         br
         button.btn.btn--l.btn--blue.btn--raised(lx-ripple, ng-click="doGetData()") แสดงข้อมูล
 
+    div(flex-item="3")
+        br
+        button.btn.btn--l.btn--blue.btn--raised(lx-ripple, ng-click="doExport()") ส่งออกข้อมูล
+
 div.data-table-container
     table.data-table.data-table--has-secondary
         thead
@@ -23,9 +27,10 @@ div.data-table-container
                 th HN
                 th ชื่อ - สกุล
                 th อายุ
+                th ส่ง
                 th
             tr
-                td(colspan="7").divider.divider--dark
+                td(colspan="8").divider.divider--dark
         tbody
             tr(ng-repeat="p in patient").data-table__clickable-row
                 td {{ $index + 1 }}
@@ -35,6 +40,10 @@ div.data-table-container
                 td {{ p.hn }}
                 td {{ p.pname }}{{ p.fname }} {{ p.lname }}
                 td {{ p.birthday | countAge }}
+                td(ng-if="p.exported_date")
+                    i.mdi.mdi-checkbox-marked-circle-outline.icon--s.icon--green.icon--flat
+                 td(ng-if="!p.exported_date")
+                     i.mdi.mdi-checkbox-blank-circle-outline.icon--s.icon--grey.icon--flat
                 td
                     lx-dropdown(position="right", from-top)
                         buton(lx-ripple, lx-dropdown-toggle).btn.btn--l.btn--grey.btn--icon
