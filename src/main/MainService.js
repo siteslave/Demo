@@ -23,10 +23,11 @@ App.factory('MainService', function ($q, Common) {
             db('er_nursing_detail as ed')
                 .select('o.vstdate', 'o.vsttime', 'o.hn', 'o.vn', 'p.cid',
                     'p.pname', 'p.fname', 'p.lname', 'p.birthday', 'p.sex',
-                    'ed.bba', 'ed.dba', 'ed.psychic', 'l.exported_date')
+                    'ed.bba', 'ed.dba', 'ed.psychic', 'l.exported_date', 'm.lat', 'm.lng')
                 .innerJoin('ovst as o', 'o.vn', 'ed.vn')
                 .innerJoin('patient as p', 'o.hn', 'p.hn')
                 .leftJoin('nemo_send_logs as l', 'l.vn', 'ed.vn')
+                .leftJoin('nemo_maps as m', 'm.vn', 'ed.vn')
                 .whereBetween('o.vstdate', [startDate, endDate])
                 .orderBy('o.vstdate')
                 .exec(function (err, rows) {

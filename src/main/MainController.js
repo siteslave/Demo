@@ -88,7 +88,7 @@ App.controller('MainController', function ($scope, MainService, LxDialogService,
         //console.log($scope.patient);
         var exportedPath = path.join(appPath, 'exported');
         var exportedFile = path.join(exportedPath, 'accident.txt');
-        var header = 'hospcode|vstdate|vsttime|hn|vn|cid|pname|fname|lname|birth|sex|bba|dba|psychic\n';
+        var header = 'hospcode|vstdate|vsttime|hn|vn|cid|pname|fname|lname|birth|sex|bba|dba|psychic|lat|lng\n';
         fs.writeFileSync(exportedFile, header, {flag: 'w'});
 
         var tmpData = [];
@@ -112,13 +112,15 @@ App.controller('MainController', function ($scope, MainService, LxDialogService,
                 obj.dba = v.dba;
                 obj.psychic = v.psychic;
                 obj.updated_at = moment().format('YYYY-MM-DD HH:mm:ss');
+                obj.lat = v.lat;
+                obj.lng = v.lng;
 
                 dataToSend.push(obj);
                 tmpData.push({vn: obj.vn, exported_date: moment().format('YYYY-MM-DD HH:mm:ss')});
 
                 var data = [obj.hospcode, obj.vstdate, obj.vsttime, obj.hn,
                     obj.vn, obj.cid, obj.pname, obj.fname, obj.lname, obj.birth,
-                    obj.sex, obj.bba, obj.dba, obj.psychic
+                    obj.sex, obj.bba, obj.dba, obj.psychic, obj.lat, obj.lng
                 ].join('|');
 
                 fs.appendFileSync(exportedFile, data + '\n');
