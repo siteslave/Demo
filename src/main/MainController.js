@@ -35,4 +35,31 @@ App.controller('MainController', function ($scope, MainService, LxDialogService)
         zoom: 15,
         mapTypeId: google.maps.MapTypeId.HYBRID
     };
+
+    $scope.markers = [];
+
+    $scope.addMarker = function (event, params) {
+        //console.log(params[0].latLng);
+        $scope.lat = params[0].latLng.k;
+        $scope.lng = params[0].latLng.D;
+
+        // clear map
+        $scope.clearMarker();
+        // set marker
+        $scope.markers.push(new google.maps.Marker({
+            map: $scope.myMap,
+            position: params[0].latLng
+        }));
+    };
+
+    $scope.doClearMarker = function (map) {
+        for (var i = 0; i < $scope.markers.length; i++) {
+            $scope.markers[i].setMap(map);
+        }
+    };
+
+    $scope.clearMarker = function () {
+        $scope.doClearMarker(null);
+    };
+
 });

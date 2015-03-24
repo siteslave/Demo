@@ -64,7 +64,8 @@ lx-dialog.dialog.dialog--l#mdlMap
                         input(type="text", ng-model="lng", ng-disabled="true")
             div(flex-container="row")
                 div(flex-item)
-                    div(ui-map="myMap" ui-options="mapOptions" class="map-canvas")
+                    div(ui-map="myMap" ui-options="mapOptions" class="map-canvas",
+                    ui-event="{'map-click': 'addMarker($event, $params)'}")
 
     div.dialog__actions
         button.btn.btn--l.btn--green.btn--raised Save
