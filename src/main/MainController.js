@@ -2,15 +2,18 @@
  * Main Controller
  **/
 App.controller('MainController', function ($scope, MainService, LxDialogService,
-                                           LxNotificationService, $window) {
+                                           LxNotificationService, $window, LxProgressService) {
     $scope.patient = [];
 
     $scope.getData = function (startDate, endDate) {
+        LxProgressService.linear.show('#5fa2db', '#progress');
         MainService.getData(startDate, endDate)
             .then(function (rows) {
                 $scope.patient = rows;
+                LxProgressService.linear.hide();
             }, function (err) {
                 console.log(err);
+                LxProgressService.linear.hide();
             });
     };
 
