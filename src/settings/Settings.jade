@@ -1,3 +1,28 @@
 //- Connection setting
 
 | Settings.
+
+div(flex-container="row", flex-gutter="24")
+    div(flex-item="6")
+        lx-select(ng-model="ajax.selectedHospcode",
+        placeholder="เลือกหน่วยบริการ", choices="ajax.list",
+        filter="ajax.search(newValue, oldValue)", loading="{{ ajax.loading }}",
+        min-length="3", allow-clear="true",
+        selection-to-model="ajax.setData(data)")
+
+            lx-select-selected
+                | {{ $selected.hospcode }} - {{ $selected.hosptype }} {{ $selected.name }}
+            lx-select-choices
+                | {{ $choice.hospcode }} - {{ $choice.name }}
+
+    div(flex-item="3")
+        button.btn.btn--l.btn--green.btn--raised(ng-click="showSelected()")
+            | Show selected
+
+div(flex-container="row")
+    div(flex-item="4")
+        div.switch
+            input(type="checkbox", ng-model="exported")#sw1.switch__input
+            label(for="sw1").switch__label ส่งออกแล้ว
+    div(flex-item="3")
+        button(ng-click="checkStatus()").btn.btn--red.btn--l.btn--raised ดูสถานะ
