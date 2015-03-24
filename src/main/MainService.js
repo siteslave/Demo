@@ -34,6 +34,22 @@ App.factory('MainService', function ($q, Common) {
                 });
 
             return q.promise;
+        },
+
+        saveMap: function (vn, lat, lng) {
+            var q = $q.defer();
+            db('nemo_maps')
+                .insert({
+                    vn: vn,
+                    lat: lat,
+                    lng: lng
+                })
+                .exec(function (err) {
+                    if (err) q.reject(err);
+                    else q.resolve();
+               });
+
+            return q.promise;
         }
 
     };

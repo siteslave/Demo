@@ -1,7 +1,7 @@
 /**
  * Main Controller
  **/
-App.controller('MainController', function ($scope, MainService, LxDialogService) {
+App.controller('MainController', function ($scope, MainService, LxDialogService, LxNotificationService) {
     $scope.patient = [];
 
     $scope.getData = function (startDate, endDate) {
@@ -25,7 +25,7 @@ App.controller('MainController', function ($scope, MainService, LxDialogService)
     };
 
     $scope.showMap = function (vn) {
-        console.log(vn);
+        $scope.vn = vn;
         LxDialogService.open('mdlMap');
     };
 
@@ -60,6 +60,27 @@ App.controller('MainController', function ($scope, MainService, LxDialogService)
 
     $scope.clearMarker = function () {
         $scope.doClearMarker(null);
+    };
+
+    // clear form
+    $scope.closingModal = function () {
+        $scope.clearMarker();
+        $scope.lat = null;
+        $scope.lng = null;
+        $scope.vn = null;
+    };
+
+    $scope.saveMap = function () {
+
+        MainService.saveMap($scope.vn, $scope.lat, $scope.lng)
+            .then(function () {
+                LxNotificationService.success('บันทึกเสร็จเรียบร้อย');
+                LxDialogService.close('mdlMap');
+            }, function (err) {
+                console.log(err);
+                LxNotificationService.error('Error');
+            });
+
     };
 
 });
