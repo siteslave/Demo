@@ -23,6 +23,20 @@ App.factory('LoginService', function ($q, Common) {
 
             return q.promise;
 
+        },
+
+        getHospital: function () {
+            var q = $q.defer();
+
+            db('opdconfig')
+                .select('hospitalname', 'hospitalcode')
+                .limit(1)
+                .exec(function (err, rows) {
+                    if (err) q.reject(err);
+                    else q.resolve(rows[0]);
+                });
+
+            return q.promise;
         }
 
     };

@@ -6,7 +6,5 @@ App.controller('SettingController', function ($scope) {
     $scope.config = jf.readFileSync(configFile);
     // Save configure
     $scope.saveConfig = function () {};
-
-    console.log($scope.config);
     
 });

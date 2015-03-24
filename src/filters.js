@@ -23,5 +23,5 @@ App.filter('countAge', function () {
         var birthYear = moment(date).get('year');
 
         return currentYear - birthYear;
-    }
+    };
 });

@@ -13,13 +13,14 @@ html(lang="en")
         link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700")
 
     body(ng-app="App")
-        div.toolbar.bgc-red-500
+        div.toolbar.bgc-red-500(ng-controller="ToolbarController")
             .toolbar__left.mr
                 button.btn.btn--l.btn--white.btn--icon(lx-ripple)
                     i.mdi.mdi-windows
             span(style="color: #fff;").toolbar__label.fs-title
                 | My Application
             .toolbar__right
+                .fs-title.tc-white [{{ hospcode }}] {{ hospname }}
                 lx-dropdown(position="right", from-top)
                     button(lx-ripple, lx-dropdown-toggle).btn.btn--white.btn--l.btn--icon
                         i.mdi.mdi-dots-vertical
@@ -53,6 +54,8 @@ html(lang="en")
                 .card
                     div(class="p+")
                         block content
+
+        // google map api
 
         script(src="../../vendor/jquery/dist/jquery.min.js")
         script(src="../../vendor/velocity/velocity.min.js")

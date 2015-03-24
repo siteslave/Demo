@@ -10,7 +10,7 @@ App.controller('MainController', function ($scope, MainService) {
                 $scope.patient = rows;
             }, function (err) {
                 console.log(err);
-            })
+            });
     };
 
     var startDate = moment().format('YYYY-MM-DD');

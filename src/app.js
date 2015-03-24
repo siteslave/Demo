@@ -51,3 +51,8 @@ App.config(function ($routeProvider) {
         .otherwise({ redirectTo: '/' });
 
 });
+
+App.controller('ToolbarController', function ($scope, $window) {
+    $scope.hospname = $window.sessionStorage.getItem('hospname');
+    $scope.hospcode = $window.sessionStorage.getItem('hospcode');
+});
