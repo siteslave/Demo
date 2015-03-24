@@ -31,7 +31,7 @@ fs.access(configFile, fs.W_OK && fs.R_OK, function (err) {
 });
 
 // Main application module
-var App = angular.module('App', ['lumx', 'ngRoute']);
+var App = angular.module('App', ['lumx', 'ngRoute', 'ui.map']);
 /************************************************************/
 /**
  * Application routing

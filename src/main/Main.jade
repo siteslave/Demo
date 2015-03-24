@@ -36,12 +36,37 @@ div.data-table-container
                 td {{ p.pname }}{{ p.fname }} {{ p.lname }}
                 td {{ p.birthday | countAge }}
                 td
-                    lx-dropdown(position="top", from-top)
+                    lx-dropdown(position="right", from-top)
                         buton(lx-ripple, lx-dropdown-toggle).btn.btn--l.btn--grey.btn--icon
                             i.mdi.mdi-dots-vertical
                         lx-dropdown-menu
                             ul
                                 li
-                                    a.dropdown-link xxxx
+                                    a(ng-click="showMap(p.vn)").dropdown-link กำหนดพิกัด
 
 //- modal
+lx-dialog.dialog.dialog--l#mdlMap
+    div.dialog__header
+        div.toolbar.bgc-light-blue-500(class="pl++")
+            span.toolbar__label.tc-white.fs-title กำหนดพิกัด
+
+            div.toolbar__right
+                button.btn.btn--l.btn--icon.btn--white(lx-ripple, lx-dialog-close)
+                    i.mdi.mdi-close
+    div.dialog__content
+        div(class="p+")
+            div(flex-container="row", flex-gutter="24")
+                div(flex-item="6")
+                    lx-text-field(label="Latitude")
+                        input(type="text", ng-model="lat", ng-disabled="true")
+                div(flex-item="6")
+                    lx-text-field(label="Longitude")
+                        input(type="text", ng-model="lng", ng-disabled="true")
+            div(flex-container="row")
+                div(flex-item)
+                    div(ui-map="myMap" ui-options="mapOptions" class="map-canvas")
+
+    div.dialog__actions
+        button.btn.btn--l.btn--green.btn--raised Save
+        | &nbsp;
+        button(lx-dialog-close).btn.btn--l.btn--grey.btn--raised Close
